@@ -18,7 +18,10 @@ resource "google_storage_bucket" "my_bucket" {
   name     = "my-unique-gcpnaresh-name-12345"  # A globally unique bucket name
   location = "US"  # Bucket location, modify as needed
 }
-
+resource "google_storage_bucket" "my_bucket" {
+  name     = "my-unique-gcpankita-name-12345"  # A globally unique bucket name
+  location = "US"  # Bucket location, modify as needed
+}
 output "bucket_name" {
   value = google_storage_bucket.my_bucket.name
 }
