@@ -7,6 +7,7 @@ variable "service_name" {
 variable "location" {
   description = "The location for the Cloud Run service"
   type        = string
+  default     = "us-central1"
 }
 
 variable "project_id" {
