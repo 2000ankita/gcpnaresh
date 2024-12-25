@@ -7,7 +7,7 @@ variable "project_id" {
 variable "region" {
   description = "The GCP region"
   type        = string
-  default     = us-central1
+  default     = "us-central1"
 }
 
 variable "service_name" {
@@ -19,7 +19,7 @@ variable "service_name" {
 variable "location" {
   description = "The location for the Cloud Run service"
   type        = string
-  default     = us-central1
+  default     = "us-central1"
 }
 
 variable "image_url" {
