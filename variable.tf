@@ -1,16 +1,24 @@
+variable "project_id" {
+  description = "The project ID where Cloud Run will be created"
+  type        = string
+}
+
+variable "region" {
+  description = "The GCP region"
+  type        = string
+  default     = "us-central1"
+}
+
 variable "service_name" {
   description = "The name of the Cloud Run service"
   type        = string
+  default     = "cloudrun-service-1"
 }
 
 variable "location" {
   description = "The location for the Cloud Run service"
   type        = string
-}
-
-variable "project" {
-  description = "The project ID where Cloud Run will be created"
-  type        = string
+  default     = "us-central1"
 }
 
 variable "image_url" {

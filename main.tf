@@ -10,9 +10,8 @@ terraform {
 }
 
 provider "google" {
-  alias   = "main_project"  # Alias for this provider
-  project = "main-project"  # Replace with your main project ID
-  region  = "us-central1"   # Replace with your desired region
+  project = "gcptest-445516"  # Your GCP project ID
+  region  = "us-central1"     # Your desired region
 }
 
 resource "google_storage_bucket" "my_bucket" {
@@ -25,4 +24,24 @@ resource "google_storage_bucket" "my_bucket1" {
 }
 output "bucket_name" {
   value = google_storage_bucket.my_bucket.name
+}
+
+
+provider "google" {
+  project = var.project
+  region  = var.region
+}
+
+module "cloud_run" {
+  source       = "./modules/cloud_run"
+  service_name = var.service_name
+  location     = var.location
+  project      = var.project_id
+  image_url    = var.image_url
+  memory       = var.memory
+  cpu          = var.cpu
+}
+
+output "cloud_run_service_url" {
+  value = module.cloud_run.cloud_run_url
 }
