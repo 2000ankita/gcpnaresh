@@ -10,8 +10,9 @@ terraform {
 }
 
 provider "google" {
-  project = "gcptest-445516"  # Your GCP project ID
-  region  = "us-central1"     # Your desired region
+  alias   = "main_project"  # Alias for this provider
+  project = "main-project"  # Replace with your main project ID
+  region  = "us-central1"   # Replace with your desired region
 }
 
 resource "google_storage_bucket" "my_bucket" {

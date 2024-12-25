@@ -1,6 +1,7 @@
 provider "google" {
-  project = "host-project" # Replace with your project ID
-  region  = "us-central1"  # Replace with your desired region
+  alias   = "host_project"  # Alias for the host project provider
+  project = "host-project"  # Replace with your host project ID
+  region  = "us-central1"   # Replace with your desired region
 }
 
 # List of APIs to enable
