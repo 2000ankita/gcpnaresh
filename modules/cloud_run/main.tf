@@ -20,3 +20,10 @@ resource "google_cloud_run_service" "service1_test" {
   }
 }
 
+# Allow unauthenticated access
+resource "google_cloud_run_service_iam_binding" "allow_unauthenticated" {
+  location    = google_cloud_run_service.default.location
+  service     = google_cloud_run_service.default.name
+  role        = "roles/run.invoker"
+  members     = ["allUsers"]
+}
