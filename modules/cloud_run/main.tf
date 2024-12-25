@@ -1,6 +1,6 @@
 resource "google_cloud_run_service" "service1_test" {
   name     = var.service_name
-  location = var.region
+  location = var.location
   project  = var.project_id
 
   template {

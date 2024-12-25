@@ -33,3 +33,8 @@ variable "cpu" {
   type        = string
   default     = "1"
 }
+
+variable "port"{
+  type        = number
+  default     = 8080
+}
