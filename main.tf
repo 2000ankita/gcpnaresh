@@ -12,7 +12,7 @@ module "cloud_run" {
   source       = "./modules/cloud_run"
   service_name = var.service_name
   location     = var.location
-  project      = var.project_id
+  project_id      = var.project_id
   image_url    = var.image_url
   memory       = var.memory
   cpu          = var.cpu
