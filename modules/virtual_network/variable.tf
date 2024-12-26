@@ -6,4 +6,5 @@ variable "region" {
 variable "network_name" {
   description = "The region for the subnet"
   type        = string
+  default     = "custom-vpc"
 }
