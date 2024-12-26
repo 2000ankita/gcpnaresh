@@ -21,6 +21,7 @@ variable "disk_image" {
 variable "network_name" {
   description = "Network to attach the instance to"
   type        = string
+  default     = "custom-vpc"
 }
 variable "project_id" {
   description = "The project ID where Cloud Run will be created"
