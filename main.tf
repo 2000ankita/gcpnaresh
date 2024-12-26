@@ -26,7 +26,7 @@ module "compute_engine" {
   machine_type  = var.machine_type
   zone          = var.zone
   disk_image    = var.disk_image
-  network_name       = var.network_name
+  network       = var.network_name
 }
 #-----vnet--------------
 module "virtual_network" {
