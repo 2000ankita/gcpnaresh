@@ -18,7 +18,7 @@ variable "disk_image" {
   type        = string
 }
 
-variable "network" {
+variable "network_name" {
   description = "Network to attach the instance to"
   type        = string
 }
