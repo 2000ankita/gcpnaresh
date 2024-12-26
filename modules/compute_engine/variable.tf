@@ -22,3 +22,8 @@ variable "network" {
   description = "Network to attach the instance to"
   type        = string
 }
+variable "project_id" {
+  description = "The project ID where Cloud Run will be created"
+  type        = string
+  default     = "gcptest-445516"
+}

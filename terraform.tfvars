@@ -1,5 +1,5 @@
 #variable for compute engine
-#project_id     = "gcptest-445516"
+project_id     = "gcptest-445516"
 region         = "us-central1"
 zone           = "us-central1-a"
 machine_type   = "e2-standard-4"
