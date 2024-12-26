@@ -17,3 +17,19 @@ module "cloud_run" {
   memory       = var.memory
   cpu          = var.cpu
 }
+
+
+#------------------compute_enginer------------------
+module "compute_engine" {
+  source        = "./modules/compute_engine"
+  instance_name = var.instance_name
+  machine_type  = var.machine_type
+  zone          = var.zone
+  disk_image    = var.disk_image
+  network       = "default"
+}
+#-----vnet--------------
+module "virtual_network" {
+  source = "./modules/virtual_network"
+  region = var.region
+}

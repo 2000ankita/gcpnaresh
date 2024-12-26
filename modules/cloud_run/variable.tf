@@ -13,7 +13,7 @@ variable "location" {
 variable "project_id" {
   description = "The project ID where Cloud Run will be created"
   type        = string
-  #default     = "gcptest-445516"
+  default     = "gcptest-445516"
 }
 
 variable "image_url" {
