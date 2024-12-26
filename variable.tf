@@ -69,3 +69,8 @@ variable "network_name" {
   description = "The region for the subnet"
   type        = string
 }
+variable "ankita_name" {
+  description = "ankita undeclared to chekc what happens"
+  type        = string
+  default     = "ankita"
+}
