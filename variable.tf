@@ -60,10 +60,10 @@ variable "disk_image" {
   type        = string
 }
 
-# variable "network" {
-#   description = "Network to attach the instance to"
-#   type        = string
-# }
+variable "network" {
+  description = "Network to attach the instance to"
+  type        = string
+}
 
 variable "network_name" {
   description = "The region for the subnet"
