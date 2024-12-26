@@ -1,7 +1,7 @@
-resource "google_project_service" "compute_engine_api" {
-  project = var.project_id
-  service = "compute.googleapis.com"
-}
+# resource "google_project_service" "compute_engine_api" {
+#   project = var.project_id
+#   service = "compute.googleapis.com"
+# }
 
 resource "google_project_iam_member" "service_usage_admin" {
   project = var.project_id
