@@ -34,3 +34,25 @@ module "virtual_network" {
   source = "./modules/virtual_network"
   region = var.region
 }
+#----------------wif---------------
+module "workload_identity_federation" {
+  source = "./modules/wif"  # Path to the module
+
+  service_account_id         = "workload-identity-sa"  # Unique ID for the service account
+  service_account_display_name = "Workload Identity Service Account"
+  project_id                 = var.project_id         # GCP Project ID
+  roles                      = ["roles/storage.admin", "roles/pubsub.publisher"]  # Assign required roles
+  
+  workload_identity_pool_id  = "my-workload-identity-pool"
+  pool_display_name          = "My Workload Identity Pool"
+  pool_description           = "Workload Identity Pool for external identities"
+
+  workload_identity_provider_id = "my-oidc-provider"
+  provider_display_name         = "OIDC Provider"
+  provider_description          = "OIDC Provider for GitHub Actions"
+
+  issuer_uri               = "https://token.actions.githubusercontent.com"  # Example for GitHub Actions
+  attribute_mapping        = {
+    "google.subject" = "assertion.sub"
+  }
+}
