@@ -38,7 +38,7 @@ resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   }
 
   # Allow only the specified GitHub repository
-  attribute_condition = "request.auth.claims['repository'] == '${var.github_repo}'"
+  attribute_condition = "request.auth.claims['sub'] == '${var.github_repo}'"
 }
 
 # Bind Workload Identity Pool Provider to impersonate the Service Account
@@ -47,6 +47,6 @@ resource "google_service_account_iam_binding" "wif_impersonation_binding" {
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.wif_pool.name}/attribute.mappings.google.subject",
+    "principalSet://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.wif_pool.workload_identity_pool_id}/attribute.mappings.google.subject"
   ]
 }
