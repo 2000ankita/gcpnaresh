@@ -47,7 +47,6 @@ resource "google_service_account_iam_binding" "wif_impersonation_binding" {
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/projects/<project_id>/locations/global/workloadIdentityPools/<workload_identity_pool_id>/attribute.mappings.<claim>"
-
+    "principalSet://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.mappings.${var.attribute_claim}"
   ]
 }
