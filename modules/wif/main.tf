@@ -24,15 +24,20 @@ resource "google_iam_workload_identity_pool" "wif_pool" {
 # Create Workload Identity Provider
 resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   workload_identity_pool_id = google_iam_workload_identity_pool.wif_pool.workload_identity_pool_id
-  provider_id               = var.workload_identity_provider_id
   display_name              = var.provider_display_name
+  provider_id               = var.workload_identity_provider_id
   description               = var.provider_description
 
   oidc {
     issuer_uri = var.issuer_uri
   }
 
-  attribute_mapping = var.attribute_mapping
+  attribute_mapping = {
+    "google.subject" = "assertion.sub"
+  }
+
+  # Allow only the specified GitHub repository
+  attribute_condition = "request.auth.claims['repository'] == '${var.github_repo}'"
 }
 
 # Bind Workload Identity Pool Provider to impersonate the Service Account

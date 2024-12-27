@@ -74,20 +74,3 @@ variable "ankita_name" {
   type        = string
   default     = "ankita"
 }
-##########wif##########
-variable "service_account_id" {}
-variable "service_account_display_name" {}
-variable "roles" {
-  type = list(string)
-}
-variable "workload_identity_pool_id" {}
-variable "pool_display_name" {}
-variable "pool_description" {}
-variable "workload_identity_provider_id" {}
-variable "provider_display_name" {}
-variable "provider_description" {}
-variable "issuer_uri" {}
-variable "attribute_mapping" {
-  type = map(string)
-}
-##
