@@ -58,3 +58,9 @@ module "workload_identity_federation" {
   github_repo                 = "2000ankita/python-dockerise-cloudrun" 
   #audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
 }
+#-------------service account pmn-----
+resource "google_project_iam_member" "artifact_registry_writer" {
+  project = "gcptest-445516"  # Replace with your project ID
+  role    = "roles/artifactregistry.writer"
+  member  = "serviceAccount:first-svc-account@gcptest-445516.iam.gserviceaccount.com"  # Replace with the service account email
+}
