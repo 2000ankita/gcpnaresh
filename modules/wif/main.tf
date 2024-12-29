@@ -1,8 +1,5 @@
 # Create Service Account
-resource "google_service_account" "workload_sa" {
-  account_id   = var.service_account_id
-  display_name = var.service_account_display_name
-}
+
 
 # Assign roles to the Service Account
 resource "google_project_iam_member" "service_account_roles" {
@@ -47,6 +44,6 @@ resource "google_service_account_iam_binding" "wif_impersonation_binding" {
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.mappings.google.subject"
+    "principal://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.google.subject/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
   ]
 }
