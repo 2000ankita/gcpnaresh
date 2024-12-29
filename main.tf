@@ -36,10 +36,7 @@ module "virtual_network" {
   region = var.region
 }
 #----------------wif---------------
-resource "google_service_account" "workload_sa" {
-  account_id   = var.service_account_id
-  display_name = var.service_account_display_name
-}
+
 
 module "workload_identity_federation" {
   source = "./modules/wif"
