@@ -59,7 +59,7 @@ resource "google_service_account_iam_binding" "wif_impersonation_binding" {
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/projects/71641751137/locations/global/workloadIdentityPools/my-workload-identity-pool/attribute.repository/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
+    "principalSet://iam.googleapis.com/projects/71641751137/locations/global/workloadIdentityPools/my-workload-identity-pool1/attribute.repository/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
   ]
 }
 
