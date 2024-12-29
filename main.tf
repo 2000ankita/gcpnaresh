@@ -38,23 +38,23 @@ module "virtual_network" {
 #----------------wif---------------
 
 
-module "workload_identity_federation" {
-  source = "./modules/wif"
+# module "workload_identity_federation" {
+#   source = "./modules/wif"
 
-  service_account_id          = "workload-identity-sa"
-  service_account_display_name = "Workload Identity Service Account"
-  project_id                  = var.project_id
-  roles                       = ["roles/storage.admin", "roles/pubsub.publisher"]
+#   service_account_id          = "workload-identity-sa"
+#   service_account_display_name = "Workload Identity Service Account"
+#   project_id                  = var.project_id
+#   roles                       = ["roles/storage.admin", "roles/pubsub.publisher"]
 
-  workload_identity_pool_id   = "my-workload-identity-pool"
-  pool_display_name           = "My Workload Identity Pool"
-  pool_description            = "Workload Identity Pool for external identities"
+#   workload_identity_pool_id   = "my-workload-identity-pool"
+#   pool_display_name           = "My Workload Identity Pool"
+#   pool_description            = "Workload Identity Pool for external identities"
 
-  workload_identity_provider_id = "my-oidc-provider"
-  provider_display_name         = "OIDC Provider"
-  provider_description          = "OIDC Provider for GitHub Actions"
+#   workload_identity_provider_id = "my-oidc-provider"
+#   provider_display_name         = "OIDC Provider"
+#   provider_description          = "OIDC Provider for GitHub Actions"
 
-  issuer_uri                  = "https://token.actions.githubusercontent.com"
-  github_repo                 = "2000ankita/python-dockerise-cloudrun" 
-  #audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
-}
+#   issuer_uri                  = "https://token.actions.githubusercontent.com"
+#   github_repo                 = "2000ankita/python-dockerise-cloudrun" 
+#   #audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
+# }
