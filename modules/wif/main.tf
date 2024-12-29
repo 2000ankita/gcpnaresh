@@ -28,10 +28,11 @@ resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   display_name              = var.provider_display_name
   #provider_id               = var.workload_identity_provider_id
   description               = var.provider_description
-  audiences = ["https://iam.googleapis.com/"]
+  
 
   oidc {
     issuer_uri = var.issuer_uri
+    audiences = ["https://iam.googleapis.com/"]
   }
 
   attribute_mapping = {
