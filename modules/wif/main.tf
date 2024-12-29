@@ -38,17 +38,26 @@ resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   }
 
   # Allow only the specified GitHub repository
-  #attribute_condition = "request.auth.claims['sub'] == '${var.github_repo}'"
   attribute_condition = "attribute.repository == '2000ankita/python-dockerise-cloudrun' && attribute.ref == 'refs/heads/dev'"
 
 }
 
 # Bind Workload Identity Pool Provider to impersonate the Service Account
+# resource "google_service_account_iam_binding" "wif_impersonation_binding" {
+#   service_account_id = google_service_account.workload_sa.name
+#   role               = "roles/iam.workloadIdentityUser"
+
+#   members = [
+#     "principalSet://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.repository/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
+#   ]
+# }
+
 resource "google_service_account_iam_binding" "wif_impersonation_binding" {
   service_account_id = google_service_account.workload_sa.name
   role               = "roles/iam.workloadIdentityUser"
 
   members = [
-    "principalSet://iam.googleapis.com/projects/${var.project_id}/locations/global/workloadIdentityPools/${var.workload_identity_pool_id}/attribute.repository/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
+    "principalSet://iam.googleapis.com/projects/71641751137/locations/global/workloadIdentityPools/my-workload-identity-pool/attribute.repository/repo:2000ankita/python-dockerise-cloudrun:ref:branch:dev"
   ]
 }
+
