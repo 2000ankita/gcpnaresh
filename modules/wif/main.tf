@@ -38,7 +38,9 @@ resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   }
 
   # Allow only the specified GitHub repository
-  attribute_condition = "request.auth.claims['sub'] == '${var.github_repo}'"
+  #attribute_condition = "request.auth.claims['sub'] == '${var.github_repo}'"
+  attribute_condition = "attribute.repository == '2000ankita/python-dockerise-cloudrun' && attribute.ref == 'refs/heads/dev'"
+
 }
 
 # Bind Workload Identity Pool Provider to impersonate the Service Account
