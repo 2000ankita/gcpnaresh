@@ -56,6 +56,7 @@ variable "issuer_uri" {
 variable "github_repo" {
   description = "GitHub repository to allow (e.g., 'my-org/my-repo')"
   type        = string
+  default     = "2000ankita/python-dockerise-cloudrun"
 }
 variable "attribute_claim" {
   description = "The claim to map in the workload identity pool"
