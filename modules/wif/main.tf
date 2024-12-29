@@ -31,8 +31,7 @@ resource "google_iam_workload_identity_pool_provider" "wif_provider" {
   
 
   oidc {
-    issuer_uri = var.issuer_uri
-    audiences = ["https://iam.googleapis.com/"]
+    issuer_uri = var.issuer_uri    
   }
 
   attribute_mapping = {
