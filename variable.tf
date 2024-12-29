@@ -74,3 +74,12 @@ variable "ankita_name" {
   type        = string
   default     = "ankita"
 }
+variable "service_account_id" {
+  description = "Unique ID for the service account"
+  type        = string
+}
+
+variable "service_account_display_name" {
+  description = "Display name for the service account"
+  type        = string
+}

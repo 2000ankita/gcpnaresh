@@ -8,3 +8,7 @@ instance_name  = "dev-instance"
 
 #vnet
 network_name = "custom-vpc"
+
+#wif
+service_account_id = "workload-identity-sa"
+service_account_display_name = "Workload Identity Service Account"
