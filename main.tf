@@ -56,5 +56,5 @@ module "workload_identity_federation" {
 
   issuer_uri                  = "https://token.actions.githubusercontent.com"
   github_repo                 = "2000ankita/python-dockerise-cloudrun" 
-  audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
+  #audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
 }
