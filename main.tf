@@ -55,5 +55,6 @@ module "workload_identity_federation" {
   provider_description          = "OIDC Provider for GitHub Actions"
 
   issuer_uri                  = "https://token.actions.githubusercontent.com"
-  github_repo                 = "2000ankita/python-dockerise-cloudrun"  # Allow this GitHub repository
+  github_repo                 = "2000ankita/python-dockerise-cloudrun" 
+  audiences = ["https://iam.googleapis.com/"] # Allow this GitHub repository
 }
